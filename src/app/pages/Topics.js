@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import Topic from './Topic';
+import Topic from '../components/Topic';
+import DefaultLayout from '../layouts/Default';
+import render from '../lib/render';
 
 const Topics = ({ match }) => (
-  <div>
+  <DefaultLayout>
     <h2>Topics</h2>
     <ul>
       <li>
@@ -27,7 +29,7 @@ const Topics = ({ match }) => (
     <Route exact path={match.url} render={() => (
       <h3>Please select a topic.</h3>
     )}/>
-  </div>
+  </DefaultLayout>
 );
 
 export default Topics;

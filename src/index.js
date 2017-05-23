@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import express from 'express';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
+const app = express();
 
-ReactDOM.render(<App />, document.getElementById('content'));
-registerServiceWorker();
+app.get('*', (req, res, next) => {
+  return res.render('app/pages/');
+});
