@@ -34,10 +34,15 @@ module.exports = {
   module : {
     loaders : [
       {
-        test : /\.js?$/,
-        include : path.resolve(__dirname, 'src'),
+        test: /\.js?$/,
+        include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules)/,
         loader : 'babel-loader'
+      },
+      {
+        test: /\.less$/,
+        include: path.resolve(__dirname, 'src'),
+        loader: "style!css!less"
       }
     ]
   }

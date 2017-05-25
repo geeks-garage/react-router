@@ -1,0 +1,43 @@
+div[role=main] {
+  position: relative;
+}
+
+/* to hide content visually but accessible for screenreaders*/
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#skipLinks {
+  a:focus, li a:active {
+    color: #fff;
+    width: 200px;
+    clip: auto;
+    overflow: visible;
+  }
+  li {
+    position: absolute;
+    height: 32px;
+    padding: 7px;
+    vertical-align: middle;
+  }
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+  &[class*=button]{
+    text-decoration: none;
+	}
+}
+
+body {
+  &.no-scroll{
+   position: fixed;
+  }
+}

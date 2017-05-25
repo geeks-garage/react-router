@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Topic = ({ match }) => (
-  <div>
+  <div className="topic-block">
     <h3>{match.params.topicId}</h3>
   </div>
 );

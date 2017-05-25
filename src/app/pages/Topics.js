@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import Topic from '../components/Topic';
-import DefaultLayout from '../layouts/Default';
+import Topic from '../components/topic';
+import DefaultLayout from '../layouts/default';
 import render from '../lib/render';
 
 const Topics = ({ match }) => (
