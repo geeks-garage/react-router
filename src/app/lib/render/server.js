@@ -1,14 +1,34 @@
-// import React from 'react';
-// import ReactDOMServer from 'react-dom/server';
-// import App from '../../../App';
-//
-// export default function (Page, props) {
-//   const context = {};
-//   return ReactDOMServer.renderToString(
-//     <StaticRouter location={req.url} context={context}>
-//       <App>
-//         <Page {...props} />
-//       </App>
-//     </StaticRouter>
-//   );
-// }
+import { createServer } from 'http'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import App from './App'
+
+console.log("server side rendering");
+createServer((req, res) => {
+  const context = {}
+
+  const html = ReactDOMServer.renderToString(
+    <StaticRouter
+      location={req.url}
+      context={context}
+    >
+      <App/>
+    </StaticRouter>
+  )
+
+  if (context.url) {
+    res.writeHead(301, {
+      Location: context.url
+    })
+    res.end()
+  } else {
+    res.write(`
+      <!doctype html>
+      <div id="app">
+        ${html}
+      </div>
+    `)
+    res.end()
+  }
+}).listen(8080)

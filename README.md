@@ -7,8 +7,10 @@ Running the app:
  - open localhost:8080 in browser
 
 debug mode:
-`npm run dev`
+`webpack`
+
+watch mode:
+`webpack --watch`
 
 production mode:
-`npm run prod`
-open index.html
+`NODE_ENV=production webpack`
